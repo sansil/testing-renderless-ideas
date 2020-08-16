@@ -4,7 +4,7 @@ export default {
   inject: ["context"],
   props: ["value", "formatedDate"],
   render: function (createElement) {
-    // var self = this;
+    var self = this;
     return createElement("input", {
       attrs: {
         type: "text",
@@ -14,6 +14,9 @@ export default {
       },
       on: {
         focus: this.focusHandler,
+        input: function (event) {
+          self.$emit("input", event.target.value);
+        },
       },
     });
   },

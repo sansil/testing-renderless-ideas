@@ -9,7 +9,11 @@
       v-slot="{showDatePicker, formatedDate,formatDate}"
       class="relative inline-block w-full max-w-xs mx-auto"
     >
-      <t-dinput class="relative mt-12 ml-10 h-8 max-w-xl" :formatedDate="formatedDate"></t-dinput>
+      <t-dinput
+        class="relative mt-12 ml-10 h-8 max-w-xl"
+        :formatedDate="formatedDate"
+        v-model="date"
+      ></t-dinput>
       <transition
         enter-active-class="transition duration-200 ease-out transform"
         enter-class="scale-95 opacity-0"
@@ -414,7 +418,7 @@ export default {
     return {
       mode: "month",
       date: new Date(),
-      datePick: "",
+      datePick: new Date(),
       vcinput: "",
     };
   },
